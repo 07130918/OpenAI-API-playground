@@ -1,6 +1,7 @@
 import re
 
 import openai
+
 from config import OPENAI_API_KEY, PROMPT
 
 
@@ -34,7 +35,6 @@ def run():
         Exception("Failed to get an idea from openai api")
 
     print(company_name)
-    print(origin_of_the_company_name)
     return company_name, origin_of_the_company_name
 
 

@@ -10,15 +10,19 @@ def main():
     count = int(sys.argv[1]) if len(sys.argv) == 2 else 1
 
     for _ in range(count):
-        company_name, origin_of_the_company_name = get_ideas.run()
-        write_to_file(company_name, origin_of_the_company_name)
+        try:
+            company_name, origin_of_the_company_name = get_ideas.run()
+            write_to_file(company_name, origin_of_the_company_name)
+        except Exception as e:
+            print(e)
+            continue
         # 分間3リクエストまで
         sleep(22)
 
 
 def write_to_file(company_name, origin_of_the_company_name):
     """company.csvに書き込む"""
-    with open("company-sub.csv", "a") as f:
+    with open("company-store.csv", "a") as f:
         writer = csv.writer(f)
         writer.writerow([company_name, origin_of_the_company_name])
 
