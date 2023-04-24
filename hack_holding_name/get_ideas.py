@@ -10,6 +10,7 @@ def run():
 
     Note:
         1リクエスト約1円($0.002/1K tokens * 4 * 130)、分間3リクエストまで
+        https://openai.com/pricing
     """
     openai.api_key = OPENAI_API_KEY
     response = openai.ChatCompletion.create(
@@ -31,8 +32,8 @@ def run():
     if match:
         origin_of_the_company_name = match.group(1)
 
-    if company_name or origin_of_the_company_name:
-        Exception("Failed to get an idea from openai api")
+    if not company_name or not origin_of_the_company_name:
+        Exception("社名、理由が取得できませんでした")
 
     print(company_name)
     return company_name, origin_of_the_company_name
