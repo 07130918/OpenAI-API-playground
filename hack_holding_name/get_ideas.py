@@ -10,6 +10,7 @@ def run():
 
     Note:
         1リクエスト約1円($0.002/1K tokens * 4 * 130)、分間3リクエストまで
+        https://openai.com/pricing
     """
     openai.api_key = OPENAI_API_KEY
     response = openai.ChatCompletion.create(
