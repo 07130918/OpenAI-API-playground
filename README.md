@@ -1,6 +1,6 @@
 # This repository is my openai api playground
 
-hack_holding_name prompt e.g.
+### hack_holding_name prompt e.g.
 ```txt
         あなたは優秀な、コピーライターかつコンサルタントです。
         インパクトのある、新しい企業名を考えることができるという、能力を持ちます。
