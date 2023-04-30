@@ -21,7 +21,7 @@ def main():
 
 
 def write_to_file(company_name, origin_of_the_company_name):
-    """company.csvに書き込む"""
+    """csvに書き込む"""
     with open("company-store.csv", "a") as f:
         writer = csv.writer(f)
         writer.writerow([company_name, origin_of_the_company_name])
