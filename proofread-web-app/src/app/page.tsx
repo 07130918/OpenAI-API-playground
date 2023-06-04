@@ -22,18 +22,26 @@ const Home: NextPage = () => {
     return (
         <Flex
             bgGradient="linear(to-r, black, blue.900)"
-            height="100vh"
+            height="min-content"
             justify="center"
             align="center"
         >
-            <Box w="90vw" bg="white" borderRadius="lg" shadow="lg" p={8}>
+            <Box
+                w="90vw"
+                bg="white"
+                borderRadius="lg"
+                shadow="lg"
+                overflow="auto"
+                p={8}
+            >
                 <Box
                     as="h1"
                     fontSize="3xl"
                     fontWeight="bold"
                     background="linear-gradient(to right, #ff00cc, #3333cc)"
                     bgClip="text"
-                    mb={6}>
+                    mb={6}
+                >
                     Journal Proofreading
                 </Box>
                 <Flex direction={["column", "column", "row"]} gap={6}>
@@ -56,17 +64,22 @@ const Home: NextPage = () => {
                             mb={4}
                             minHeight="40vh"
                         />
-                        <Button colorScheme="teal" onClick={handleSubmit} isLoading={isLoading} width="full">
+                        <Button
+                            width="full"
+                            colorScheme="teal"
+                            isLoading={isLoading}
+                            onClick={handleSubmit}
+                        >
                             Submit
                         </Button>
                     </Box>
                     <Box flex={1}>
                         <Heading size="md" mb={2}>Proofread Text:</Heading>
                         <Textarea
-                            value={proofread}
-                            isReadOnly
                             size="lg"
                             minHeight="60vh"
+                            isReadOnly
+                            value={proofread}
                         />
                     </Box>
                 </Flex>
