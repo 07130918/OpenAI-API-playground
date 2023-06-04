@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, Flex, Heading, Input, Textarea } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Input, Textarea, useBreakpointValue } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 
 import { journal } from '@/lib/templates';
@@ -19,20 +19,21 @@ const Home: NextPage = () => {
         isLoading
     } = useProofreading(formattedJournal);
 
+    const boxHeight = useBreakpointValue({ base: "auto", md: "100vh" });
+
     return (
         <Flex
             bgGradient="linear(to-r, black, blue.900)"
-            height="min-content"
+            height={boxHeight}
             justify="center"
             align="center"
         >
-            <Box
-                w="90vw"
+            <Box w="90vw"
                 bg="white"
                 borderRadius="lg"
                 shadow="lg"
-                overflow="auto"
                 p={8}
+                overflowY={boxHeight === "auto" ? "scroll" : "visible"}
             >
                 <Box
                     as="h1"
