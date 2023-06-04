@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export const useProofreading = (initialJournal: string) => {
     const [journal, setJournal] = useState(initialJournal);
-    const [password, setPassword] = useState('');
+    const [secret, setSecret] = useState('');
     const [proofread, setProofread] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const toast = useToast();
@@ -14,7 +14,7 @@ export const useProofreading = (initialJournal: string) => {
     const handleSubmit = async () => {
         setIsLoading(true);
         try {
-            const res = await axios.post<string>('/api/proofread', { journal, password });
+            const res = await axios.post<string>('/api/proofread', { journal, secret });
             setProofread(res.data);
             toast({
                 title: "Request success.",
@@ -26,12 +26,9 @@ export const useProofreading = (initialJournal: string) => {
             })
         } catch (error: any) {
             console.error(error);
-            const description = error.response.status === 401
-                ? "Password is incorrect."
-                : "There was an error with your request.";
             toast({
                 title: "Request failed.",
-                description,
+                description: "There was an error with your request.",
                 status: "error",
                 duration: 3000,
                 isClosable: true,
@@ -41,5 +38,5 @@ export const useProofreading = (initialJournal: string) => {
         }
     };
 
-    return { journal, setJournal, password, setPassword, proofread, handleSubmit, isLoading };
+    return { journal, setJournal, secret, setSecret, proofread, handleSubmit, isLoading };
 }

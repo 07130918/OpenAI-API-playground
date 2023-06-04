@@ -7,7 +7,7 @@ import { assistantTemplate, userTemplate } from '../../../lib/templates';
 
 type ReqBody = {
     journal: string;
-    password: string;
+    secret: string;
 };
 
 // 学習したい言語
@@ -15,12 +15,11 @@ const LANGUAGE = "English";
 
 export async function POST(req: NextRequest) {
     const reqBody: ReqBody = await req.json();
-    // キーのバリデーション
-    if (reqBody.password !== process.env.PASSWORD) {
-        return NextResponse.json({ error: "Invalid password" }, { status: 401 });
-    }
+    const openAIApiKey = reqBody.secret === process.env.PASSWORD
+        ? process.env.OPENAI_API_KEY!
+        : reqBody.secret;
 
-    const model = new OpenAI({ openAIApiKey: process.env.OPENAI_API_KEY, temperature: 0.8 });
+    const model = new OpenAI({ openAIApiKey, temperature: 0.8 });
     const assistantPrompt = SystemMessagePromptTemplate.fromTemplate(assistantTemplate);
     const userPrompt = HumanMessagePromptTemplate.fromTemplate(userTemplate);
     const chatPrompt = ChatPromptTemplate.fromPromptMessages([assistantPrompt, userPrompt]);

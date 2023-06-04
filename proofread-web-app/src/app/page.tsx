@@ -12,8 +12,8 @@ const Home: NextPage = () => {
     const {
         journal,
         setJournal,
-        password,
-        setPassword,
+        secret,
+        setSecret,
         proofread,
         handleSubmit,
         isLoading
@@ -38,11 +38,11 @@ const Home: NextPage = () => {
                 </Box>
                 <Flex direction={["column", "column", "row"]} gap={6}>
                     <Box flex={1}>
-                        <Heading size="md" mb={2}>Password:</Heading>
+                        <Heading size="md" mb={2}>Your OpenAI API key or Password:</Heading>
                         <Input
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            placeholder="Enter the password here"
+                            value={secret}
+                            onChange={e => setSecret(e.target.value)}
+                            placeholder="Enter your OpenAI API key or password here"
                             size="lg"
                             mb={4}
                             type="password"
