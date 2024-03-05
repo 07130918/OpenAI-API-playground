@@ -17,26 +17,26 @@ export const useProofreading = (initialJournal: string) => {
             const res = await axios.post<string>('/api/proofread', { journal, secret });
             setProofread(res.data);
             toast({
-                title: "Request success.",
+                title: 'Request success.',
                 description: "We've received your request.",
-                status: "success",
+                status: 'success',
                 duration: 3000,
                 isClosable: true,
-                variant: "subtle",
-            })
+                variant: 'subtle',
+            });
         } catch (error: any) {
             console.error(error);
             toast({
-                title: "Request failed.",
-                description: "There was an error with your request.",
-                status: "error",
+                title: 'Request failed.',
+                description: 'There was an error with your request.',
+                status: 'error',
                 duration: 3000,
                 isClosable: true,
-            })
+            });
         } finally {
             setIsLoading(false);
         }
     };
 
     return { journal, setJournal, secret, setSecret, proofread, handleSubmit, isLoading };
-}
+};

@@ -11,7 +11,8 @@ export const journal = `
         At the end of my life I must be still having lots of money Ill donate all of my money for kids and animals, kids live in developing countries
     `;
 
-export const assistantTemplate = "You are a helpful and capable assistant who can behave as a native {language} speaker.";
+export const assistantTemplate =
+    'You are a helpful and capable assistant who can behave as a native {language} speaker.';
 
 export const userTemplate = `
         I'm looking for someone who can play the role of a native {language} speaker and teacher.
