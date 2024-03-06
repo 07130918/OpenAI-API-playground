@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 
     return (
         <Box minH='100vh' bgGradient='linear(to-r, black, blue.900)'>
-            <HStack pt={{ base: 4, md: 28 }} justify='center'>
+            <HStack pt={{ base: 4, md: 16 }} justify='center'>
                 <Box
                     w='90vw'
                     bg='white'
@@ -77,36 +77,39 @@ const Home: NextPage = () => {
                     </Stack>
                 </Box>
             </HStack>
-            <Box mt={20} py={4} borderColor='#FFF' borderTopWidth='1px'>
-                <Stack
-                    direction={{ base: 'column', md: 'row' }}
-                    spacing={4}
-                    justifyContent='flex-start'
-                    alignItems='center'
-                    pl={4}
-                >
-                    <Link
-                        href='https://hi-there-this-is-kota.vercel.app'
-                        isExternal
-                        color='#FFF'
-                        fontSize='sm'
-                        _hover={{ color: '#00c8ff' }}
+            {/* footer */}
+            <Box pt={40}>
+                <Box py={4} borderColor='#FFF' borderTopWidth='1px'>
+                    <Stack
+                        direction={{ base: 'column', md: 'row' }}
+                        spacing={4}
+                        justifyContent='flex-start'
+                        alignItems='center'
+                        pl={4}
                     >
-                        Developer&apos;s Website
-                    </Link>
-                    <Link href='https://www.buymeacoffee.com/hi.im.kota' isExternal>
-                        <Image
-                            src='https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png'
-                            alt='Buy Me A Coffee'
-                            h='30px'
-                            w='108px'
-                        />
-                    </Link>
-                    <Link href='https://www.paypal.com/paypalme/kotawebdev' isExternal>
-                        <Image src='/paypal.png' alt='Paypal' h='45px' w='90px' />
-                    </Link>
-                    <NextImage src='/OpenAI.jpg' alt='OpenAI' width={160} height={160} />
-                </Stack>
+                        <Link
+                            href='https://hi-there-this-is-kota.vercel.app'
+                            isExternal
+                            color='#FFF'
+                            fontSize='sm'
+                            _hover={{ color: '#00c8ff' }}
+                        >
+                            Developer&apos;s Website
+                        </Link>
+                        <Link href='https://www.buymeacoffee.com/hi.im.kota' isExternal>
+                            <Image
+                                src='https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png'
+                                alt='Buy Me A Coffee'
+                                h='30px'
+                                w='108px'
+                            />
+                        </Link>
+                        <Link href='https://www.paypal.com/paypalme/kotawebdev' isExternal>
+                            <Image src='/paypal.png' alt='Paypal' h='45px' w='90px' />
+                        </Link>
+                        <NextImage src='/OpenAI.jpg' alt='OpenAI' width={160} height={160} />
+                    </Stack>
+                </Box>
             </Box>
         </Box>
     );
