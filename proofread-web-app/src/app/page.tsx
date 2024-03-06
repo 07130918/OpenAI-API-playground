@@ -53,7 +53,6 @@ const Home: NextPage = () => {
                             </Box>
                             <Button
                                 width='full'
-                                colorScheme='teal'
                                 isLoading={isLoading}
                                 onClick={handleSubmit}
                             >
