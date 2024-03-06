@@ -1,10 +1,9 @@
 'use client';
 
-import { Box, Button, Flex, Heading, Input, Textarea } from '@chakra-ui/react';
-import type { NextPage } from 'next';
-
 import { journal } from '@/lib/templates';
 import { useProofreading } from '@/lib/useProofreading';
+import { Box, Button, Flex, Heading, Textarea } from '@chakra-ui/react';
+import type { NextPage } from 'next';
 
 const formattedJournal = journal.replace(/ +/g, ' ').replace(/\n+/g, '\n').trim();
 
@@ -19,14 +18,7 @@ const Home: NextPage = () => {
             justify='center'
             align='center'
         >
-            <Box
-                w='90vw'
-                bg='white'
-                borderRadius='lg'
-                shadow='lg'
-                p={8}
-                overflowY='scroll'
-            >
+            <Box w='90vw' bg='white' borderRadius='lg' shadow='lg' px={8} py={6} overflowY='scroll'>
                 <Box
                     as='h2'
                     fontSize='3xl'
@@ -37,18 +29,19 @@ const Home: NextPage = () => {
                 >
                     Journal Proofreading
                 </Box>
-                <Flex direction={['column', 'column', 'row']} gap={6}>
+                <Flex direction={['column', 'row']} gap={6}>
                     <Box flex={1}>
                         <Heading size='md' mb={2}>
                             Journal Entry:
                         </Heading>
                         <Box pb={4}>
                             <Textarea
-                                value={journal}
-                                onChange={(e) => setJournal(e.target.value)}
                                 placeholder='Enter your journal here'
                                 size='lg'
                                 rows={18}
+                                resize='none'
+                                value={journal}
+                                onChange={(e) => setJournal(e.target.value)}
                             />
                         </Box>
                         <Button
@@ -66,7 +59,8 @@ const Home: NextPage = () => {
                         </Heading>
                         <Textarea
                             size='lg'
-                            // minHeight='60vh'
+                            rows={18}
+                            resize='none'
                             isReadOnly
                             value={proofread}
                         />
